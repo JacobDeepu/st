@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
-static int borderpx = 2;
+static char *font = "MesloLGS NF:antialias=true:hinting=true:pixelsize:12";
+static int borderpx = 10;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -16,7 +16,7 @@ static int borderpx = 2;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/sh";
+static char *shell = "/bin/zsh";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
@@ -95,41 +95,40 @@ unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+	
+  /* 8 normal colors */
+  [0] = "#29343d", /* black   */
+  [1] = "#f9929b", /* red     */
+  [2] = "#7ed491", /* green   */
+  [3] = "#fbdf90", /* yellow  */
+  [4] = "#a3b8ef", /* blue    */
+  [5] = "#ccaced", /* magenta */
+  [6] = "#3FDCEE", /* cyan    */
+  [7] = "#ffffff", /* white   */
 
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+  /* 8 bright colors */
+  [8]  = "#3b4b58", /* black   */
+  [9]  = "#fca2aa", /* red     */
+  [10] = "#a5d4af", /* green   */
+  [11] = "#fbeab9", /* yellow  */
+  [12] = "#bac8ef", /* blue    */
+  //[13] = "#d7c1ed", /* magenta */
+  [13] = "#D8A6F4", /* magenta */
+  [14] = "#79E6F3", /* cyan    */
+  [15] = "#eaeaea", /* white   */
 
-	[255] = 0,
-
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
+  /* special colors */
+  [256] = "#1d1f28", /* background */
+  [257] = "#fdfdfd", /* foreground */
 };
-
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 7;
-unsigned int defaultbg = 0;
-static unsigned int defaultcs = 256;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+static unsigned int defaultcs = 13;
 static unsigned int defaultrcs = 257;
 
 /*
