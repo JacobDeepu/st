@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "MesloLGS NF:antialias=true:hinting=true:pixelsize:12";
-static int borderpx = 2;
+static int borderpx = 12;
 
 /*
  * What program is execed by st depends of these precedence rules:
